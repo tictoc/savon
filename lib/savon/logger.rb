@@ -27,7 +27,7 @@ module Savon
 
       # Returns the logger. Defaults to an instance of +Logger+ writing to STDOUT.
       def logger
-        @logger ||= ::Logger.new STDOUT
+        @logger ||= ActiveRecord::Base.logger rescue ::Logger.new STDOUT
       end
 
       # Sets the log level.
